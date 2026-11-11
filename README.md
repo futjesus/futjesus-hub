@@ -1,40 +1,53 @@
 # Futjesus Hub
 
-Todas tus cuentas de Gmail en una sola ventana, al estilo Franz. Hecha con Tauri 2 y `@konstructio/ui`.
+All your Gmail accounts in a single window, Franz style. Built with Tauri 2 and `@konstructio/ui`.
 
-Cada cuenta corre en su propio webview con un data store de WebKit aislado, así que las sesiones nunca se mezclan. Por eso la app requiere **macOS 14+**.
+Every account runs in its own webview with an isolated WebKit data store, so sessions never mix. That is why the app requires **macOS 14+**.
 
-## Instalación
+## Installation
 
 ```sh
 brew install --cask futjesus/tap/futjesus-hub
 ```
 
-Requiere macOS 14+ en Apple Silicon. La app no está notarizada; el cask le quita la cuarentena para que Gatekeeper la deje abrir.
+Requires macOS 14+ on Apple Silicon. The app is not notarized; the cask removes the quarantine flag so Gatekeeper lets it open.
 
-## Desarrollo
+## Features
 
-```bash
+- Multiple Gmail accounts, each with its own isolated session
+- Inbox unread counter per account and a total badge on the Dock icon
+- Profile picture taken from each Gmail account
+- Drag to reorder accounts; right click for reload, edit and remove
+- Links open in the system browser or inside the app (configurable)
+- Light and dark theme
+- Memory usage panel and hibernation of idle accounts to free memory
+
+## Shortcuts
+
+| Shortcut | Action |
+| --- | --- |
+| ⌘1 … ⌘9 | Switch account |
+| ⌘⇧R | Reload the current account |
+| ⌘= / ⌘- / ⌘0 | Zoom in / out / reset (saved per account) |
+| ⌘⇧M | Memory usage |
+
+## Development
+
+```sh
 pnpm install
-pnpm tauri dev      # modo desarrollo
-pnpm tauri build    # genera .app y .dmg en src-tauri/target/release/bundle
+pnpm tauri dev      # development mode
+pnpm tauri build    # builds the .app in src-tauri/target/release/bundle
 ```
 
-Requiere Rust (`rustup`) y las Xcode Command Line Tools.
+Requires Rust (`rustup`) and the Xcode Command Line Tools.
 
-## Atajos
+## Structure
 
-| Atajo | Acción |
-| --- | --- |
-| ⌘1 … ⌘9 | Cambiar de cuenta |
-| ⌘⇧R | Recargar la cuenta actual |
-| ⌘= / ⌘- / ⌘0 | Acercar / alejar / tamaño real (se guarda por cuenta) |
-
-## Estructura
-
-- `src-tauri/src/lib.rs`: ventana, comandos y menú.
-- `src-tauri/src/gmail.rs`: webviews de Gmail, ventanas emergentes, descargas, zoom y el sondeo de no leídos/avatar.
-- `src-tauri/src/status.js`: script que lee del DOM de Gmail el contador de "Recibidos", el correo y la foto de perfil.
-- `src-tauri/src/store.rs`: cuentas y configuración, guardadas en `~/Library/Application Support/com.futjesus.hub/accounts.json`.
-- `src/`: barra lateral y modales en React con `@konstructio/ui`.
-- `design/icon.svg`: fuente del icono (`pnpm tauri icon design/icon.svg` regenera los tamaños).
+- `src-tauri/src/lib.rs`: window, commands and menu.
+- `src-tauri/src/gmail.rs`: Gmail webviews, popups, downloads, zoom and the unread/avatar polling.
+- `src-tauri/src/status.js`: script that reads the inbox count, email address and profile picture from Gmail's page.
+- `src-tauri/src/hibernate.rs`: closes idle accounts and wakes them up on demand.
+- `src-tauri/src/memory.rs`: memory usage of each account's WebKit process.
+- `src-tauri/src/store.rs`: accounts and settings, saved in `~/Library/Application Support/com.futjesus.hub/accounts.json`.
+- `src/`: sidebar and modals in React with `@konstructio/ui`.
+- `design/icon.svg`: icon source (`pnpm tauri icon design/icon.svg` regenerates every size).
