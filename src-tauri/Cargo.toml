@@ -2,7 +2,8 @@
 name = "futjesus-hub"
 version = "0.1.0"
 description = "Multiple Gmail accounts in one window"
-authors = ["Jesús"]
+authors = ["Jesús Manuel Fuentes Trejo"]
+license = "MIT"
 edition = "2024"
 
 [lib]

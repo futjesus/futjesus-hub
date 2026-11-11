@@ -51,3 +51,7 @@ Requires Rust (`rustup`) and the Xcode Command Line Tools.
 - `src-tauri/src/store.rs`: accounts and settings, saved in `~/Library/Application Support/com.futjesus.hub/accounts.json`.
 - `src/`: sidebar and modals in React with `@konstructio/ui`.
 - `design/icon.svg`: icon source (`pnpm tauri icon design/icon.svg` regenerates every size).
+
+## License
+
+[MIT](LICENSE)
