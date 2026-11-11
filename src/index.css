@@ -1,0 +1,20 @@
+@import 'tailwindcss';
+
+@import '@konstructio/ui/ui/theme.css';
+@import '@konstructio/ui/ui/civo-theme.css';
+@import '@konstructio/ui/ui/utilities.css';
+
+@source '../node_modules/@konstructio/ui/dist';
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+}

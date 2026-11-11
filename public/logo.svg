@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#061a4a"/>
+      <stop offset="0.55" stop-color="#0b3a9e"/>
+      <stop offset="1" stop-color="#2a6be0"/>
+    </linearGradient>
+    <linearGradient id="andesBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3b5fb8"/>
+      <stop offset="1" stop-color="#1d3f8f"/>
+    </linearGradient>
+    <linearGradient id="andesFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#14306f"/>
+      <stop offset="1" stop-color="#0a1d4a"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e9eef7"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e8382b"/>
+      <stop offset="1" stop-color="#b81d14"/>
+    </linearGradient>
+    <linearGradient id="canton" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1f5bd6"/>
+      <stop offset="1" stop-color="#0033a0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.35" r="0.6">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#020a24" flood-opacity="0.55"/>
+    </filter>
+    <filter id="badgeShadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#020a24" flood-opacity="0.45"/>
+    </filter>
+    <clipPath id="squircle">
+      <rect x="100" y="100" width="824" height="824" rx="185"/>
+    </clipPath>
+  </defs>
+
+  <!-- Night sky over the Andes -->
+  <g clip-path="url(#squircle)">
+    <rect x="100" y="100" width="824" height="824" fill="url(#sky)"/>
+    <rect x="100" y="100" width="824" height="824" fill="url(#glow)"/>
+    <g fill="#ffffff">
+      <circle cx="200" cy="190" r="4" opacity="0.8"/>
+      <circle cx="300" cy="150" r="3" opacity="0.6"/>
+      <circle cx="840" cy="200" r="4" opacity="0.7"/>
+      <circle cx="760" cy="150" r="2.5" opacity="0.5"/>
+      <circle cx="870" cy="300" r="3" opacity="0.6"/>
+      <circle cx="160" cy="320" r="2.5" opacity="0.5"/>
+    </g>
+    <!-- Andes: back range -->
+    <path d="M100 700 L180 600 L250 650 L340 560 L430 640 L512 590 L600 650 L690 560 L780 640 L850 580 L924 640 L924 924 L100 924 Z" fill="url(#andesBack)"/>
+    <!-- Andes: front range with snow caps -->
+    <path d="M100 790 L200 650 L300 740 L400 680 L512 760 L620 680 L730 740 L830 640 L924 760 L924 924 L100 924 Z" fill="url(#andesFront)"/>
+    <g fill="#ffffff" opacity="0.95">
+      <path d="M200 650 L240 706 L222 700 L206 716 L190 698 L166 698 Z"/>
+      <path d="M830 640 L866 690 L848 684 L832 700 L816 684 L794 690 Z"/>
+      <path d="M180 600 L206 632 L194 628 L182 640 L170 628 L156 630 Z" opacity="0.7"/>
+      <path d="M850 580 L878 614 L864 610 L852 622 L840 610 L826 612 Z" opacity="0.7"/>
+    </g>
+  </g>
+
+  <!-- Envelope dressed as the Chilean flag -->
+  <g filter="url(#shadow)">
+    <rect x="262" y="300" width="500" height="350" rx="40" fill="url(#paper)"/>
+    <path d="M262 475 H762 V610 a40 40 0 0 1 -40 40 H302 a40 40 0 0 1 -40 -40 Z" fill="url(#red)"/>
+    <path d="M282 322 L512 500 L742 322" fill="none" stroke="#c9d3e6" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M282 630 L440 488 M742 630 L584 488" fill="none" stroke="#000000" stroke-opacity="0.1" stroke-width="12" stroke-linecap="round"/>
+  </g>
+
+  <!-- The lone star, as a badge on the corner -->
+  <g filter="url(#badgeShadow)">
+    <rect x="196" y="234" width="190" height="190" rx="48" fill="url(#canton)"/>
+    <path d="M291 270 L308.6 313.8 L355.7 317 L319.4 347.1 L330.9 392.9 L291 367.8 L251.1 392.9 L262.6 347.1 L226.3 317 L273.4 313.8 Z" fill="#ffffff"/>
+  </g>
+</svg>
