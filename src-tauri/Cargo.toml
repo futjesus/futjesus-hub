@@ -1,6 +1,6 @@
 [package]
 name = "futjesus-hub"
-version = "0.1.0"
+version = "0.1.1"
 description = "Multiple Gmail accounts in one window"
 authors = ["Jesús Manuel Fuentes Trejo"]
 license = "MIT"
