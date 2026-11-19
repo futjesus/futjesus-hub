@@ -1,5 +1,5 @@
 import { CSSProperties } from "react";
-import { Avatar, Badge, cn } from "@konstructio/ui";
+import { Avatar, cn } from "@konstructio/ui";
 
 import { Account, initials } from "../lib/api";
 
@@ -62,12 +62,17 @@ export const AccountButton = ({
         className="bg-(--account) font-semibold text-white"
       />
       {unread > 0 && (
-        <Badge
-          label={unread > 99 ? "99+" : String(unread)}
-          variant="danger"
-          isSelectable={false}
-          className="absolute -top-1.5 -right-2.5 min-w-5 justify-center px-1 py-0 text-[10px] leading-4"
-        />
+        <span
+          aria-label={`${unread} sin leer`}
+          className={cn(
+            "absolute -top-1 -right-1 flex items-center justify-center rounded-full",
+            "bg-(--account) text-[10px] leading-none font-bold text-white tabular-nums",
+            "ring-2 ring-metal-50 dark:ring-metal-950",
+            unread > 99 ? "size-6" : "size-5",
+          )}
+        >
+          {unread > 99 ? "99+" : unread}
+        </span>
       )}
     </button>
   );
